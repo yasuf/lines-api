@@ -11,6 +11,8 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.51.0",
+    "@aws-sdk/s3-request-presigner": "^3.51.0",
     "@strapi/plugin-i18n": "4.0.7",
     "@strapi/plugin-users-permissions": "4.0.7",
     "@strapi/strapi": "4.0.7",
