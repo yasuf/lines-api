@@ -18,7 +18,6 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
       }
       return element;
     }));
-    console.log(newData);
     return { data: newData };
   },
 
@@ -32,5 +31,16 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
     console.log(response);
 
     return response;
+  },
+
+  async searchLine(context) {
+    const query = context.request.url.split('?')[1].split('=')[1]
+    console.log('query');
+    console.log(query);
+    const entry = await strapi.db.query('api::line.line').findOne({
+      where: { name: query }
+    });
+
+    return entry;
   }
 }));
