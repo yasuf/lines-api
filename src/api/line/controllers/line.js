@@ -35,12 +35,10 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
 
   async searchLine(context) {
     const query = context.request.url.split('?')[1].split('=')[1]
-    console.log('query');
-    console.log(query);
     const entry = await strapi.db.query('api::line.line').findOne({
       where: { name: query }
     });
-
+    entry.signedUrl = await getUrl(entry.url)
     return entry;
   }
 }));
