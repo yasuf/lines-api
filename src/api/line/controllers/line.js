@@ -38,6 +38,7 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
     const entry = await strapi.db.query('api::line.line').findOne({
       where: { name: query }
     });
+    console.log(entry);
     entry.signedUrl = await getUrl(entry.url)
     return entry;
   }

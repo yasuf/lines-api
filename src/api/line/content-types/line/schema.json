@@ -4,7 +4,8 @@
   "info": {
     "singularName": "line",
     "pluralName": "lines",
-    "displayName": "Line"
+    "displayName": "Line",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,16 @@
     },
     "discord_guild_id": {
       "type": "biginteger"
+    },
+    "audioFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     }
   }
 }
