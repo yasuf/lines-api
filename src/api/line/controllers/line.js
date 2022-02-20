@@ -29,7 +29,6 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
       ...response.data.attributes
     }
 
-    console.log(response);
 
     return response;
   },
@@ -43,8 +42,7 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
         audioFile: true
       }
     });
-    console.log(entry);
-    entry.signedUrl = await getUrl(entry.url)
+    // entry.signedUrl = await getUrl(entry.url)
     return entry;
   }
 }));
