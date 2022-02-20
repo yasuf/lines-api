@@ -15,9 +15,6 @@
     "name": {
       "type": "string"
     },
-    "url": {
-      "type": "string"
-    },
     "discord_guild_id": {
       "type": "biginteger"
     },
