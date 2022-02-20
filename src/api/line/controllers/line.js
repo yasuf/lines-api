@@ -4,6 +4,7 @@
  *  line controller
  */
 
+const querystring = require('querystring');
 const { createCoreController } = require('@strapi/strapi').factories;
 const { getUrl } = require('../../../helpers/aws.js');
 
@@ -34,9 +35,13 @@ module.exports = createCoreController('api::line.line', ({ strapi }) => ({
   },
 
   async searchLine(context) {
-    const query = context.request.url.split('?')[1].split('=')[1]
+    const queryString = querystring.parse(context.request.url.split('?')[1]);
+
     const entry = await strapi.db.query('api::line.line').findOne({
-      where: { name: query }
+      where: { name: queryString.query },
+      populate: {
+        audioFile: true
+      }
     });
     console.log(entry);
     entry.signedUrl = await getUrl(entry.url)
